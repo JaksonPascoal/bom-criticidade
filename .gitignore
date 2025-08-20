@@ -1,0 +1,9 @@
+# Ignorar pastas de ambiente virtual
+venv/
+.venv/
+
+# Ignorar arquivos temporários e de cache
+*.log
+*.swp
+.ipynb_checkpoints/
+__pycache__/
