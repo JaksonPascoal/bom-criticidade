@@ -1,0 +1,17 @@
+[
+  {
+    "criticality_level": "Alta",
+    "number_of_materials": 703,
+    "total_quantity_in_stock": 10174648
+  },
+  {
+    "criticality_level": "Baixa",
+    "number_of_materials": 668,
+    "total_quantity_in_stock": 17147990
+  },
+  {
+    "criticality_level": "Média",
+    "number_of_materials": 643,
+    "total_quantity_in_stock": 16985770
+  }
+]

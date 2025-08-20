@@ -67,21 +67,28 @@ print("Tabela 'suppliers_inventory' gerada.")
 print("Gerando tabela 'usage_history'...")
 start_date = datetime(2023, 1, 1)
 end_date = datetime(2024, 8, 20)
-usage_data = []
 time_delta = end_date - start_date
 num_days = time_delta.days
 num_usages = 50000
 
-for _ in range(num_usages):
+usage_data = []
+unique_usage_keys = set()
+
+while len(unique_usage_keys) < num_usages:
     random_days = random.randint(0, num_days)
     usage_date = start_date + timedelta(days=random_days)
     material_id = random.randint(1, num_materials)
-    used_quantity = round(random.uniform(1.0, 500.0), 2)
-    usage_data.append({
-        'material_id': material_id,
-        'usage_date': usage_date.strftime('%Y-%m-%d'),
-        'used_quantity': used_quantity
-    })
+
+    # Garante a unicidade da combinacao de material_id e usage_date
+    if (material_id, usage_date) not in unique_usage_keys:
+        unique_usage_keys.add((material_id, usage_date))
+        used_quantity = round(random.uniform(1.0, 500.0), 2)
+        usage_data.append({
+            'material_id': material_id,
+            'usage_date': usage_date.strftime('%Y-%m-%d'),
+            'used_quantity': used_quantity
+        })
+
 usage_history = pd.DataFrame(usage_data)
 usage_history.to_csv('data/synthetic/usage_history.csv', index=False)
 print("Tabela 'usage_history' gerada.")
