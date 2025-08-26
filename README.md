@@ -1,71 +1,51 @@
-# Projeto BOM - Data Warehouse para Indústria de Fertilizantes
+Data Warehouse: Otimização de Bill of Materials (BOM) na Indústria de Fertilizantes
 
-## 💡 Visão Geral do Projeto
+Este projeto demonstra a construção de um pipeline de dados completo, aplicando minha experiência de 20 anos em Planejamento e Automação Industrial para otimizar a gestão do Bill of Materials (BOM) em uma indústria de fertilizantes. O objetivo é transformar dados brutos em insights estratégicos para a redução de custos e a otimização de processos de produção.
 
-Este projeto tem como objetivo principal a construção de um Data Warehouse para gerenciar o *Bill of Materials* (BOM) e o inventário de uma indústria de fertilizantes. O objetivo é transformar dados brutos em informações estruturadas e visualizações que auxiliem a tomada de decisão, otimizando a cadeia de suprimentos e identificando gargalos na produção.
+Contexto e Problema de Negócio:
 
-## ⚙️ Tecnologias Utilizadas
+Profissionais que trabalham na área sabem o quão ineficiente pode ser a gestão de materiais e inventário sem um sistema centralizado. Este projeto simula um cenário real onde dados de diferentes fontes são unificados em um Data Warehouse. A solução permite análises estratégicas que identificam gargalos, otimizam a cadeia de suprimentos e suportam a tomada de decisão.
 
-* **SQL:** Criação do banco de dados, modelagem do Data Warehouse (modelo estrela), e consultas analíticas.
-* **Python:** Geração de dados sintéticos realistas e automatização de tarefas.
-* **Git & GitHub:** Versionamento e colaboração.
-* **HTML, CSS & JavaScript (com Chart.js):** Construção de um dashboard interativo para visualização dos dados.
-* **VS Code:** Ambiente de desenvolvimento integrado.
+Tecnologias e Ferramentas:
 
-## 📂 Estrutura do Projeto
+Python: Linguagem principal para a automação do pipeline de ETL (Extração, Transformação e Carga).
 
-Projeto_BOM_Datawarehouse
-├── README.md               (Este arquivo)
-├── .gitignore              (Arquivos a serem ignorados pelo Git)
-├── data/                   (Armazena os dados do projeto)
-│   └── synthetic/          (Arquivos CSV com dados gerados)
-├── sql/                    (Scripts SQL para o banco de dados)
-│   ├── ddl/                (Scripts para criação de tabelas)
-│   ├── dml/                (Scripts para carga e manipulação de dados)
-│   ├── dw/                 (Scripts para a modelagem do Data Warehouse)
-│   └── queries/            (Consultas analíticas)
-├── dashboard/              (Arquivos para o dashboard HTML)
-│   └── data/               (Arquivos JSON para o dashboard)
-└── notebooks/              (Notebooks para exploração de dados e geração de dados)
+Pandas & NumPy: Manipulação e processamento de dados, garantindo a qualidade e integridade do dataset.
 
+SQL Server: Banco de dados relacional para a modelagem do Data Warehouse (modelo estrela), centralizando os dados para análise.
 
-## 📝 Como Rodar o Projeto
+Git & GitHub: Versionamento e controle de todo o projeto, mostrando um fluxo de trabalho profissional.
 
-Este projeto foi desenvolvido com o objetivo de ser **reprodutível**. Siga os passos abaixo para replicá-lo em sua máquina:
+HTML, CSS & JavaScript (com Chart.js): Desenvolvimento de um dashboard interativo para visualizar os principais insights do negócio.
 
-1.  **Clone o Repositório:**
-    ```bash
-    git clone [https://github.com/SeuUsuario/Projeto-data-warehouse-bom.git](https://github.com/SeuUsuario/Projeto-data-warehouse-bom.git)
-    cd Projeto-data-warehouse-bom
-    ```
-    *(Substitua "SeuUsuario" pelo seu nome de usuário do GitHub).*
+VS Code: Ambiente de desenvolvimento utilizado.
 
-2.  **Crie e Ative o Ambiente Virtual:**
-    ```bash
-    python -m venv venv
-    source venv/Scripts/activate
-    ```
+Fluxo do Projeto (Pipeline de ETL)
+Geração de Dados: Um script Python (src/data_generation.py) cria dados sintéticos e realistas sobre materiais, fornecedores e histórico de uso.
 
-3.  **Instale as Dependências:**
-    ```bash
-    pip install -r requirements.txt
-    ```
-    *(Nota: O arquivo `requirements.txt` será gerado após o download do projeto.)*
+Extração e Transformação: O script de ETL em Python (src/etl_pipeline.py) lê os dados, limpa valores ausentes, trata inconsistências e realiza as transformações necessárias.
 
-4.  **Gere os Dados Sintéticos:**
-    * Abra um terminal e rode o script de geração de dados.
-    ```bash
-    python notebooks/data_generation.py
-    ```
+Carga (Load): Os dados são automaticamente inseridos nas tabelas de dimensão e fato do SQL Server, construindo o Data Warehouse.
 
-5.  **Crie a Estrutura do Banco de Dados:**
-    * Abra o SQL Server Management Studio (SSMS).
-    * Crie um novo banco de dados chamado `BOM_Fertilizantes`.
-    * Execute o script `sql/ddl/01_create_tables.sql` para criar as tabelas.
+Análise e Dashboard: Consultas SQL são executadas no DW para obter insights, que são então visualizados em um dashboard interativo.
 
-6.  **Carregue os Dados:**
-    * Use o assistente de importação do SSMS para os arquivos `materials.csv`, `suppliers_inventory.csv`, `usage_history.csv` e `material_criticality.csv`.
-    * Para o arquivo `bom_structure.csv`, utilize o script Python para evitar erros de importação.
-    ```bash
-    python sql/dml/02_load_data.py
-    ```
+Como Rodar o Projeto
+Este projeto foi construído para ser reprodutível e automatizado. Siga os passos abaixo para replicá-lo:
+
+Clone o Repositório:
+
+Bash
+
+git clone [https://github.com/SeuUsuario/Projeto-data-warehouse-bom.git]
+cd Projeto-data-warehouse-bom
+Instale as Dependências:
+
+Bash
+
+pip install -r requirements.txt
+Execute o Pipeline Completo:
+
+Bash
+
+python src/main.py
+Obs: Certifique-se de configurar as credenciais do seu banco de dados no arquivo de configuração do projeto.
