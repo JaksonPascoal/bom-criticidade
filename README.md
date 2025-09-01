@@ -1,51 +1,79 @@
-Data Warehouse: Otimização de Bill of Materials (BOM) na Indústria de Fertilizantes
+🔧 BOM Criticidade — Otimização de Materiais na Indústria
 
-Este projeto demonstra a construção de um pipeline de dados completo, aplicando minha experiência de 20 anos em Planejamento e Automação Industrial para otimizar a gestão do Bill of Materials (BOM) em uma indústria de fertilizantes. O objetivo é transformar dados brutos em insights estratégicos para a redução de custos e a otimização de processos de produção.
+Este projeto demonstra a construção de um pipeline de dados completo para análise de criticidade do Bill of Materials (BOM), aplicando minha experiência de 20 anos em Planejamento e Automação Industrial. O objetivo é transformar dados brutos em insights estratégicos que apoiem a redução de custos, a priorização de compras e a otimização de processos produtivos.
 
-Contexto e Problema de Negócio:
+🎯 Contexto e Problema de Negócio
 
-Profissionais que trabalham na área sabem o quão ineficiente pode ser a gestão de materiais e inventário sem um sistema centralizado. Este projeto simula um cenário real onde dados de diferentes fontes são unificados em um Data Warehouse. A solução permite análises estratégicas que identificam gargalos, otimizam a cadeia de suprimentos e suportam a tomada de decisão.
+Na indústria, a gestão de materiais e inventário sem um sistema centralizado leva a:
 
-Tecnologias e Ferramentas:
+Estoques mal dimensionados
 
-Python: Linguagem principal para a automação do pipeline de ETL (Extração, Transformação e Carga).
+Capital imobilizado em itens de baixa prioridade
 
-Pandas & NumPy: Manipulação e processamento de dados, garantindo a qualidade e integridade do dataset.
+Risco de paradas por falta de peças críticas
 
-SQL Server: Banco de dados relacional para a modelagem do Data Warehouse (modelo estrela), centralizando os dados para análise.
+Este projeto simula um cenário real de Data Warehouse de Materiais, unificando dados de diferentes fontes e permitindo análises estratégicas que identificam gargalos, otimizam a cadeia de suprimentos e suportam a tomada de decisão baseada em dados.
 
-Git & GitHub: Versionamento e controle de todo o projeto, mostrando um fluxo de trabalho profissional.
+🛠️ Tecnologias e Ferramentas
 
-HTML, CSS & JavaScript (com Chart.js): Desenvolvimento de um dashboard interativo para visualizar os principais insights do negócio.
+Python — Automação do pipeline de ETL
 
-VS Code: Ambiente de desenvolvimento utilizado.
+Pandas & NumPy — Manipulação e limpeza de dados
 
-Fluxo do Projeto (Pipeline de ETL)
-Geração de Dados: Um script Python (src/data_generation.py) cria dados sintéticos e realistas sobre materiais, fornecedores e histórico de uso.
+SQL Server — Data Warehouse (modelo estrela)
 
-Extração e Transformação: O script de ETL em Python (src/etl_pipeline.py) lê os dados, limpa valores ausentes, trata inconsistências e realiza as transformações necessárias.
+HTML, CSS & JavaScript (Chart.js) — Dashboard interativo
 
-Carga (Load): Os dados são automaticamente inseridos nas tabelas de dimensão e fato do SQL Server, construindo o Data Warehouse.
+Git & GitHub — Versionamento e fluxo profissional
 
-Análise e Dashboard: Consultas SQL são executadas no DW para obter insights, que são então visualizados em um dashboard interativo.
+VS Code — Ambiente de desenvolvimento
 
-Como Rodar o Projeto
-Este projeto foi construído para ser reprodutível e automatizado. Siga os passos abaixo para replicá-lo:
+🔄 Fluxo do Projeto (ETL + Análise)
 
-Clone o Repositório:
+Geração de Dados — src/data_generation.py cria dados sintéticos realistas sobre materiais, fornecedores e consumo.
 
-Bash
+Extração e Transformação (ETL) — src/etl_pipeline.py limpa valores nulos, trata inconsistências e transforma os dados.
 
-git clone [https://github.com/SeuUsuario/Projeto-data-warehouse-bom.git]
-cd Projeto-data-warehouse-bom
-Instale as Dependências:
+Carga (Load) — Dados inseridos em tabelas fato e dimensão no SQL Server.
 
-Bash
+Score de Criticidade — Combina variáveis de engenharia, lead time, custo e cobertura de estoque.
+
+Dashboard Interativo — Insights visualizados via Chart.js (Top materiais críticos, correlações, distribuições).
+
+📊 Exemplos de Insights
+
+Apenas 5% dos itens respondem por mais de 40% do risco de parada.
+
+Itens com alto lead time e baixo estoque concentram o maior impacto.
+
+O cruzamento de criticidade de engenharia + custo revela oportunidades de otimização financeira.
+
+▶️ Como Rodar o Projeto
+
+Clone o repositório:
+
+git clone https://github.com/JaksonPascoal/bom-criticidade.git
+cd bom-criticidade
+
+
+Instale as dependências:
 
 pip install -r requirements.txt
-Execute o Pipeline Completo:
 
-Bash
+
+Execute o pipeline completo:
 
 python src/main.py
-Obs: Certifique-se de configurar as credenciais do seu banco de dados no arquivo de configuração do projeto.
+
+
+Obs: Configure as credenciais do banco de dados no arquivo config.json.
+
+🚀 Próximos Passos
+
+Ajustar pesos do score de criticidade via AHP ou modelos de ML
+
+Integração com SAP para uso em ambiente real
+
+Deploy do dashboard em GitHub Pages
+
+✨ Diferencial: Este projeto une vivência prática industrial + ciência de dados aplicada, mostrando como decisões de negócio podem ser priorizadas com algoritmos interpretáveis.
