@@ -3,44 +3,65 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>BOM Criticidade - Fertilizantes </title>
-  <link rel="stylesheet" href="styles.css"/>
+  <title>BOM Criticidade — V7</title>
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Nosso script (build V7) -->
+  <script defer src="script.v7.js"></script>
+
+  <!-- Meta básica -->
+  <meta name="description" content="Dashboard de criticidade de materiais para indústria de fertilizantes: análise de risco, lead time, custo, estoque e consumo."/>
 </head>
 <body>
   <header>
-  <h1>Materiais Críticos — Indústria de Fertilizantes</h1>
-  <p>Score interpretável: criticidade de engenharia, lead time, custo e cobertura de estoque.</p>
-</header>
+    <h1>Materiais Críticos — Indústria de Fertilizantes</h1>
+    <p>
+      Score interpretável combinando <strong>criticidade de engenharia</strong>, 
+      <strong>lead time</strong>, <strong>custo</strong> e <strong>cobertura</strong>.
+    </p>
+  </header>
+
   <main class="chart-wrap">
-  <div class="chart">
-    <canvas id="critChart"></canvas>
-  </div>
+    <!-- Linha 1 -->
+    <div class="grid-2">
+      <div class="chart">
+        <canvas id="critChart"></canvas>
+      </div>
+      <div class="chart">
+        <canvas id="bubbleLeadCusto"></canvas>
+      </div>
+    </div>
 
-  <div class="grid-2">
-    <div class="chart">
-      <canvas id="histScore"></canvas>
+    <!-- Linha 2 -->
+    <div class="grid-2">
+      <div class="chart">
+        <canvas id="pareto"></canvas>
+      </div>
+      <div class="chart">
+        <canvas id="barCritEng"></canvas>
+      </div>
     </div>
-    <div class="chart">
-      <canvas id="bubbleLeadCusto"></canvas>
-    </div>
-  </div>
 
-  <div class="grid-2">
-    <div class="chart">
-      <canvas id="pareto"></canvas>
+    <!-- Linha 3 -->
+    <div class="grid-2">
+      <div class="chart">
+        <canvas id="histScore"></canvas>
+      </div>
+      <div class="chart">
+        <!-- NOVO: Consumo × Estoque -->
+        <canvas id="scatterEstoqueConsumo"></canvas>
+      </div>
     </div>
-    <div class="chart">
-      <canvas id="barCritEng"></canvas>
-    </div>
-  </div>
-</main>
-
+  </main>
 
   <footer>
     <small>© Jakson Pascoal — BOM Criticidade (MVP)</small>
   </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>
+

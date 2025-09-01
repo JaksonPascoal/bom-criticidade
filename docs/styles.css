@@ -1,28 +1,70 @@
 
-* { box-sizing: border-box; }
-body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; background: #0f1115; color: #eaeaea; }
-header, footer { text-align: center; padding: 16px; }
-h1 { margin: 8px 0; font-size: 1.4rem; }
-.chart-wrap { position: relative; width: 100%; max-width: 1000px; margin: 0 auto; padding: 8px 12px; }
-.chart { position: relative; height: 56vh; }
-@media (max-width: 600px) { .chart { height: 65vh; } }
+/* ===== RESET BÁSICO ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: #1e1e1e;
+  color: #eaeaea;
+  line-height: 1.5;
+  padding: 1rem;
+}
+
+/* ===== HEADER ===== */
+header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+header h1 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  color: #4dabf7;
+}
+
+header p {
+  font-size: 1rem;
+  color: #aaa;
+}
+
+/* ===== LAYOUT GRIDS ===== */
+.chart-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
 
 .grid-2 {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  margin-top: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 1.5rem;
 }
-@media (max-width: 900px) {
-  .grid-2 { grid-template-columns: 1fr; }
-}
-.chart { position: relative; height: 52vh; }
 
-:root{
-  --fg:#eaeaea; --muted:#b9c0ca; --grid:rgba(255,255,255,.08);
-  --brand:#4DABF7; --brand-2:#FF9F40; --accent:#22c55e;
+/* ===== CHARTS ===== */
+.chart {
+  background: #2a2a2a;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-body{background:#0f1115;color:var(--fg);}
-h1{letter-spacing:.2px}
-.chart{height:52vh}
-.small{font-size:.9rem;color:var(--muted);text-align:center;margin:6px 0}
+
+canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: #777;
+}
