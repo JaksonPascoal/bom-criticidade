@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BOM Criticidade - Fertilizantes </title>
+  <link rel="stylesheet" href="styles.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header>
+  <h1>Materiais Críticos — Indústria de Fertilizantes</h1>
+  <p>Score interpretável: criticidade de engenharia, lead time, custo e cobertura de estoque.</p>
+</header>
+  <main class="chart-wrap">
+  <div class="chart">
+    <canvas id="critChart"></canvas>
+  </div>
+
+  <div class="grid-2">
+    <div class="chart">
+      <canvas id="histScore"></canvas>
+    </div>
+    <div class="chart">
+      <canvas id="bubbleLeadCusto"></canvas>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="chart">
+      <canvas id="pareto"></canvas>
+    </div>
+    <div class="chart">
+      <canvas id="barCritEng"></canvas>
+    </div>
+  </div>
+</main>
+
+
+  <footer>
+    <small>© Jakson Pascoal — BOM Criticidade (MVP)</small>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
