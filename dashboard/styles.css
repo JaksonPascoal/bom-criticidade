@@ -5,3 +5,14 @@ h1 { margin: 8px 0; font-size: 1.4rem; }
 .chart-wrap { position: relative; width: 100%; max-width: 1000px; margin: 0 auto; padding: 8px 12px; }
 .chart { position: relative; height: 56vh; }
 @media (max-width: 600px) { .chart { height: 65vh; } }
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 12px;
+}
+@media (max-width: 900px) {
+  .grid-2 { grid-template-columns: 1fr; }
+}
+.chart { position: relative; height: 52vh; }

@@ -3,24 +3,42 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>BOM Criticidade — Top 20</title>
+  <title>BOM Criticidade - Fertilizantes </title>
   <link rel="stylesheet" href="styles.css"/>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
   <header>
-    <h1>Top 20 Materiais por Criticidade</h1>
-    <p>Score baseado em engenharia, lead time, custo e cobertura.</p>
-  </header>
-
+  <h1>Materiais Críticos — Indústria de Fertilizantes</h1>
+  <p>Score interpretável: criticidade de engenharia, lead time, custo e cobertura de estoque.</p>
+</header>
   <main class="chart-wrap">
+  <div class="chart">
+    <canvas id="critChart"></canvas>
+  </div>
+
+  <div class="grid-2">
     <div class="chart">
-      <canvas id="critChart"></canvas>
+      <canvas id="histScore"></canvas>
     </div>
-  </main>
+    <div class="chart">
+      <canvas id="bubbleLeadCusto"></canvas>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="chart">
+      <canvas id="pareto"></canvas>
+    </div>
+    <div class="chart">
+      <canvas id="barCritEng"></canvas>
+    </div>
+  </div>
+</main>
+
 
   <footer>
-    <small>© Pasqual — BOM Criticidade (MVP)</small>
+    <small>© Jakson Pascoal — BOM Criticidade (MVP)</small>
   </footer>
 
   <script src="script.js"></script>

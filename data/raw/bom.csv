@@ -1,301 +1,401 @@
 material_id,descricao,criticidade_engenharia,lead_time_dias,custo_unitario,consumo_mensal,estoque_atual
-M0001,Material 1,1,37,157.53,45,144
-M0002,Material 2,5,38,182.63,53,85
-M0003,Material 3,5,19,103.94,33,19
-M0004,Material 4,4,32,228.66,40,75
-M0005,Material 5,2,27,98.16,68,163
-M0006,Material 6,3,37,185.14,28,108
-M0007,Material 7,3,35,59.13,1,55
-M0008,Material 8,4,37,173.75,11,19
-M0009,Material 9,3,16,106.23,53,88
-M0010,Material 10,3,49,139.06,53,50
-M0011,Material 11,4,23,106.96,30,99
-M0012,Material 12,3,25,63.12,65,104
-M0013,Material 13,5,29,114.47,1,162
-M0014,Material 14,5,31,202.16,40,66
-M0015,Material 15,1,33,92.84,80,115
-M0016,Material 16,5,36,113.44,28,46
-M0017,Material 17,4,33,175.73,39,30
-M0018,Material 18,5,18,184.52,1,184
-M0019,Material 19,2,25,148.43,49,85
-M0020,Material 20,2,32,89.34,58,95
-M0021,Material 21,4,3,120.94,41,75
-M0022,Material 22,1,24,82.29,36,136
-M0023,Material 23,1,28,183.9,71,81
-M0024,Material 24,3,46,132.14,30,79
-M0025,Material 25,3,36,90.1,46,116
-M0026,Material 26,2,13,124.48,39,79
-M0027,Material 27,3,25,152.09,2,168
-M0028,Material 28,3,30,194.45,32,73
-M0029,Material 29,4,41,5,29,75
-M0030,Material 30,4,35,138.18,13,70
-M0031,Material 31,2,45,106.52,28,21
-M0032,Material 32,4,44,147.35,17,98
-M0033,Material 33,1,30,171.82,65,86
-M0034,Material 34,5,30,172.62,30,58
-M0035,Material 35,1,32,132.24,42,139
-M0036,Material 36,2,14,126.53,59,44
-M0037,Material 37,2,33,43.65,43,96
-M0038,Material 38,4,23,198.95,44,69
-M0039,Material 39,1,44,186.0,43,61
-M0040,Material 40,2,34,210.9,25,95
-M0041,Material 41,2,32,133.15,54,6
-M0042,Material 42,1,66,221.35,67,0
-M0043,Material 43,2,35,209.84,44,119
-M0044,Material 44,1,30,153.39,4,138
-M0045,Material 45,4,26,240.4,35,10
-M0046,Material 46,4,34,191.6,65,69
-M0047,Material 47,5,38,169.45,61,94
-M0048,Material 48,5,43,277.59,51,92
-M0049,Material 49,5,48,199.44,1,134
-M0050,Material 50,5,30,230.6,24,51
-M0051,Material 51,5,22,129.15,37,139
-M0052,Material 52,3,30,210.08,32,50
-M0053,Material 53,3,51,89.36,67,83
-M0054,Material 54,5,33,149.43,43,110
-M0055,Material 55,3,45,66.03,32,97
-M0056,Material 56,5,26,70.96,69,75
-M0057,Material 57,1,23,83.63,48,72
-M0058,Material 58,2,28,275.47,39,56
-M0059,Material 59,3,17,91.6,48,134
-M0060,Material 60,3,22,148.45,45,72
-M0061,Material 61,4,31,134.18,34,98
-M0062,Material 62,3,35,205.05,32,30
-M0063,Material 63,1,48,206.61,60,51
-M0064,Material 64,3,25,133.17,51,104
-M0065,Material 65,1,35,125.56,40,98
-M0066,Material 66,5,37,109.23,31,64
-M0067,Material 67,2,48,26.67,55,3
-M0068,Material 68,1,39,273.17,44,39
-M0069,Material 69,2,28,254.99,71,130
-M0070,Material 70,4,33,258.85,23,88
-M0071,Material 71,2,32,236.86,27,99
-M0072,Material 72,1,37,139.97,27,48
-M0073,Material 73,5,28,162.39,51,58
-M0074,Material 74,5,37,139.01,56,106
-M0075,Material 75,3,3,217.26,72,136
-M0076,Material 76,2,29,244.21,85,80
-M0077,Material 77,5,20,18.63,38,53
-M0078,Material 78,4,43,187.73,31,110
-M0079,Material 79,1,28,100.2,32,118
-M0080,Material 80,4,25,77.87,50,135
-M0081,Material 81,4,20,33.72,27,57
-M0082,Material 82,5,34,105.84,48,148
-M0083,Material 83,5,23,94.57,27,89
-M0084,Material 84,4,36,5,37,21
-M0085,Material 85,3,15,141.77,21,143
-M0086,Material 86,2,26,112.14,41,88
-M0087,Material 87,2,43,141.69,42,36
-M0088,Material 88,5,35,237.05,25,81
-M0089,Material 89,1,45,75.64,66,34
-M0090,Material 90,2,41,284.97,33,78
-M0091,Material 91,2,34,134.87,54,113
-M0092,Material 92,5,43,143.87,80,53
-M0093,Material 93,5,38,33.82,1,118
-M0094,Material 94,4,43,90.41,24,84
-M0095,Material 95,2,34,109.15,43,34
-M0096,Material 96,2,29,173.81,36,111
-M0097,Material 97,3,33,134.69,51,111
-M0098,Material 98,2,29,128.95,19,107
-M0099,Material 99,4,47,193.28,13,123
-M0100,Material 100,1,40,69.93,38,82
-M0101,Material 101,3,27,206.89,69,32
-M0102,Material 102,5,29,74.59,28,62
-M0103,Material 103,2,28,218.47,17,118
-M0104,Material 104,4,26,36.54,89,25
-M0105,Material 105,5,39,160.13,35,76
-M0106,Material 106,4,37,200.28,58,92
-M0107,Material 107,2,21,165.29,51,57
-M0108,Material 108,4,29,174.8,64,86
-M0109,Material 109,3,30,172.33,45,76
-M0110,Material 110,1,36,137.54,51,82
-M0111,Material 111,2,25,154.89,61,65
-M0112,Material 112,3,30,113.84,14,38
-M0113,Material 113,1,31,114.66,30,128
-M0114,Material 114,3,10,89.91,6,147
-M0115,Material 115,2,43,192.24,33,66
-M0116,Material 116,3,37,84.34,81,159
-M0117,Material 117,1,23,201.99,23,114
-M0118,Material 118,3,40,154.97,18,82
-M0119,Material 119,3,17,65.18,34,38
-M0120,Material 120,5,37,139.75,48,33
-M0121,Material 121,4,11,174.55,25,60
-M0122,Material 122,2,32,127.67,51,59
-M0123,Material 123,4,16,112.13,27,119
-M0124,Material 124,3,32,187.69,45,45
-M0125,Material 125,5,27,104.0,88,86
-M0126,Material 126,1,30,211.19,26,69
-M0127,Material 127,4,22,94.68,42,62
-M0128,Material 128,2,23,175.32,30,47
-M0129,Material 129,5,19,137.8,39,44
-M0130,Material 130,4,29,195.27,49,97
-M0131,Material 131,1,28,5,35,55
-M0132,Material 132,4,27,228.97,41,26
-M0133,Material 133,1,34,106.33,29,106
-M0134,Material 134,5,32,163.08,55,91
-M0135,Material 135,2,19,73.57,42,83
-M0136,Material 136,3,19,162.36,42,91
-M0137,Material 137,4,32,164.49,13,82
-M0138,Material 138,1,40,239.32,48,74
-M0139,Material 139,2,42,219.12,12,36
-M0140,Material 140,2,31,92.06,54,61
-M0141,Material 141,5,38,146.79,20,42
-M0142,Material 142,1,36,136.76,47,137
-M0143,Material 143,2,30,225.88,51,114
-M0144,Material 144,5,27,152.9,36,111
-M0145,Material 145,4,36,168.92,36,150
-M0146,Material 146,5,17,31.44,17,102
-M0147,Material 147,2,45,88.87,50,90
-M0148,Material 148,3,14,87.09,58,59
-M0149,Material 149,4,24,63.75,62,63
-M0150,Material 150,4,17,180.88,65,38
-M0151,Material 151,5,29,176.26,76,61
-M0152,Material 152,5,28,143.61,43,6
-M0153,Material 153,5,46,175.21,11,90
-M0154,Material 154,3,35,222.35,24,45
-M0155,Material 155,1,19,161.51,35,96
-M0156,Material 156,2,22,230.93,28,173
-M0157,Material 157,5,34,155.89,39,99
-M0158,Material 158,4,42,65.94,80,80
-M0159,Material 159,4,24,170.05,18,131
-M0160,Material 160,4,30,109.6,1,52
-M0161,Material 161,4,38,102.97,67,90
-M0162,Material 162,2,27,99.88,60,83
-M0163,Material 163,2,52,143.55,30,84
-M0164,Material 164,2,14,150.97,24,78
-M0165,Material 165,4,37,144.45,21,67
-M0166,Material 166,5,9,143.61,50,55
-M0167,Material 167,4,20,239.24,39,82
-M0168,Material 168,3,36,82.62,18,12
-M0169,Material 169,4,21,136.75,16,63
-M0170,Material 170,4,48,100.41,54,76
-M0171,Material 171,4,31,253.17,71,97
-M0172,Material 172,4,18,208.13,64,0
-M0173,Material 173,4,35,143.17,57,72
-M0174,Material 174,1,37,104.06,18,72
-M0175,Material 175,2,17,196.9,52,117
-M0176,Material 176,3,21,228.27,16,16
-M0177,Material 177,5,23,185.84,33,13
-M0178,Material 178,5,33,155.05,9,13
-M0179,Material 179,2,29,86.0,63,112
-M0180,Material 180,1,15,182.0,45,73
-M0181,Material 181,1,27,206.01,55,119
-M0182,Material 182,5,27,115.61,52,128
-M0183,Material 183,4,24,119.57,49,68
-M0184,Material 184,4,22,99.27,18,5
-M0185,Material 185,4,42,97.49,51,116
-M0186,Material 186,3,38,146.08,69,65
-M0187,Material 187,4,33,116.96,22,110
-M0188,Material 188,2,23,188.38,31,139
-M0189,Material 189,1,44,137.86,36,131
-M0190,Material 190,1,43,97.16,61,5
-M0191,Material 191,2,22,115.15,21,37
-M0192,Material 192,2,15,56.42,29,52
-M0193,Material 193,4,39,161.9,69,144
-M0194,Material 194,3,29,112.71,56,116
-M0195,Material 195,3,8,124.43,47,53
-M0196,Material 196,4,38,139.79,64,27
-M0197,Material 197,4,35,142.36,78,63
-M0198,Material 198,4,47,127.86,16,132
-M0199,Material 199,1,29,180.69,17,128
-M0200,Material 200,3,13,93.48,48,72
-M0201,Material 201,2,16,164.87,56,67
-M0202,Material 202,5,30,171.33,59,1
-M0203,Material 203,3,27,125.9,45,83
-M0204,Material 204,4,35,179.26,20,70
-M0205,Material 205,3,22,63.17,59,66
-M0206,Material 206,2,40,92.29,53,32
-M0207,Material 207,3,39,161.78,1,114
-M0208,Material 208,3,42,203.36,1,49
-M0209,Material 209,3,37,167.9,87,60
-M0210,Material 210,4,35,172.57,5,0
-M0211,Material 211,1,31,106.36,58,116
-M0212,Material 212,1,36,83.12,8,42
-M0213,Material 213,2,27,179.86,41,78
-M0214,Material 214,2,42,144.14,42,61
-M0215,Material 215,1,36,191.63,46,28
-M0216,Material 216,1,31,167.5,38,31
-M0217,Material 217,1,12,165.48,30,78
-M0218,Material 218,5,32,231.59,33,0
-M0219,Material 219,5,25,231.66,111,108
-M0220,Material 220,4,25,162.82,34,37
-M0221,Material 221,1,27,180.57,59,119
-M0222,Material 222,5,21,134.08,64,78
-M0223,Material 223,4,19,147.78,42,61
-M0224,Material 224,5,28,108.95,26,88
-M0225,Material 225,3,34,96.5,37,45
-M0226,Material 226,3,25,99.97,66,154
-M0227,Material 227,1,33,163.75,9,107
-M0228,Material 228,3,34,79.19,18,53
-M0229,Material 229,3,25,95.92,73,12
-M0230,Material 230,4,40,79.33,66,69
-M0231,Material 231,3,39,193.26,52,117
-M0232,Material 232,1,22,211.85,52,101
-M0233,Material 233,2,36,41.52,76,68
-M0234,Material 234,5,24,81.81,17,42
-M0235,Material 235,3,37,158.67,43,0
-M0236,Material 236,3,50,154.65,21,63
-M0237,Material 237,2,28,5,60,106
-M0238,Material 238,4,22,176.44,18,126
-M0239,Material 239,5,12,79.3,58,135
-M0240,Material 240,1,26,107.53,27,40
-M0241,Material 241,4,24,171.47,21,77
-M0242,Material 242,1,26,238.42,10,84
-M0243,Material 243,1,35,320.18,52,89
-M0244,Material 244,2,31,48.62,37,99
-M0245,Material 245,4,29,112.71,17,122
-M0246,Material 246,5,16,117.86,27,111
-M0247,Material 247,1,19,175.97,55,96
-M0248,Material 248,4,15,108.02,31,89
-M0249,Material 249,1,36,142.23,61,65
-M0250,Material 250,3,46,210.87,41,133
-M0251,Material 251,5,47,207.54,39,51
-M0252,Material 252,2,42,189.24,27,74
-M0253,Material 253,3,15,271.71,33,62
-M0254,Material 254,1,34,181.65,12,39
-M0255,Material 255,1,37,242.67,6,82
-M0256,Material 256,5,8,193.0,13,57
-M0257,Material 257,5,18,293.05,31,119
-M0258,Material 258,4,22,168.1,38,93
-M0259,Material 259,5,39,180.02,58,88
-M0260,Material 260,3,47,205.6,56,36
-M0261,Material 261,5,20,202.48,71,61
-M0262,Material 262,1,12,183.95,29,51
-M0263,Material 263,4,4,148.7,5,102
-M0264,Material 264,3,34,147.22,36,71
-M0265,Material 265,4,42,145.86,25,55
-M0266,Material 266,3,16,217.29,37,68
-M0267,Material 267,3,34,160.76,32,50
-M0268,Material 268,5,36,111.38,30,69
-M0269,Material 269,3,24,231.46,34,62
-M0270,Material 270,1,26,204.3,49,9
-M0271,Material 271,5,42,199.53,36,79
-M0272,Material 272,3,32,187.72,61,65
-M0273,Material 273,2,35,149.99,30,147
-M0274,Material 274,5,32,37.06,44,72
-M0275,Material 275,3,39,91.66,30,66
-M0276,Material 276,2,38,60.13,44,57
-M0277,Material 277,4,39,165.48,29,0
-M0278,Material 278,5,26,247.3,16,95
-M0279,Material 279,3,47,127.46,50,65
-M0280,Material 280,5,41,143.48,36,118
-M0281,Material 281,5,24,167.45,48,131
-M0282,Material 282,3,40,172.11,7,147
-M0283,Material 283,5,34,110.45,41,48
-M0284,Material 284,5,36,201.43,53,70
-M0285,Material 285,4,47,58.14,22,100
-M0286,Material 286,3,32,342.86,36,86
-M0287,Material 287,1,37,76.36,42,58
-M0288,Material 288,3,39,116.34,56,21
-M0289,Material 289,4,29,151.95,53,94
-M0290,Material 290,2,14,120.81,30,76
-M0291,Material 291,3,30,180.49,42,136
-M0292,Material 292,5,25,157.74,62,49
-M0293,Material 293,1,21,92.12,36,47
-M0294,Material 294,1,24,120.6,14,109
-M0295,Material 295,1,20,141.66,64,65
-M0296,Material 296,5,20,130.08,12,90
-M0297,Material 297,3,29,160.86,44,44
-M0298,Material 298,1,32,53.08,37,90
-M0299,Material 299,5,22,223.11,54,26
-M0300,Material 300,4,17,69.28,71,106
+SB-BOM-0001,Bomba centrífuga aço inox 3”,4,14,60.06,29,45
+SB-SEN-0002,Sensor de nível ultrassônico,1,13,94.64,28,48
+MP-H2SO4-0003,Ácido sulfúrico (H₂SO₄),4,31,150.38,89,57
+SB-VAL-0004,Válvula esfera 2” PVDF,3,12,55.44,46,88
+MP-URE-0005,Ureia (46% N),3,28,269.78,118,77
+MP-DAP-0006,Fosfato diamônico (DAP),3,43,247.71,62,18
+MP-URE-0007,Ureia (46% N),2,43,234.3,116,78
+MP-MAP-0008,Fosfato monoamônico (MAP),4,13,258.29,139,105
+SB-AGI-0009,Agitador tanque 5 m³,2,8,46.05,36,64
+IP-CAT-0010,Catalisador linha amônia,1,17,61.81,62,53
+IP-ADP-0011,Aditivo anti-empedrante granulação,2,45,194.65,23,20
+IP-FLX-0012,Fluxo para granulação,4,28,171.44,59,44
+IP-FLX-0013,Fluxo para granulação,4,5,281.22,78,91
+SB-VAL-0014,Válvula esfera 2” PVDF,3,5,39.11,20,30
+SB-SEN-0015,Sensor de nível ultrassônico,2,14,140.77,46,64
+SB-COR-0016,Correia transportadora 800 mm,3,13,146.93,37,60
+SB-AGI-0017,Agitador tanque 5 m³,4,14,136.97,39,74
+MP-H2SO4-0018,Ácido sulfúrico (H₂SO₄),5,27,217.76,103,70
+SB-BOM-0019,Bomba centrífuga aço inox 3”,5,7,63.02,35,56
+SB-VAL-0020,Válvula esfera 2” PVDF,3,30,119.21,30,44
+MP-NH3-0021,Amônia anidra (NH₃),2,28,212.59,67,12
+SB-SEN-0022,Sensor de nível ultrassônico,2,10,102.82,1,1
+IP-ADP-0023,Aditivo anti-empedrante granulação,3,13,172.89,72,79
+SB-VAL-0024,Válvula esfera 2” PVDF,1,14,87.46,23,32
+MP-MAP-0025,Fosfato monoamônico (MAP),2,42,242.23,106,50
+SB-SEN-0026,Sensor de nível ultrassônico,1,9,76.25,9,13
+SB-MOT-0027,Motor 30 kW IP55,5,7,110.73,22,26
+MP-DAP-0028,Fosfato diamônico (DAP),3,32,100,140,95
+MP-AMN-0029,Nitrato de amônio,4,33,272.22,158,78
+SB-BOM-0030,Bomba centrífuga aço inox 3”,4,9,49.25,31,46
+MP-DAP-0031,Fosfato diamônico (DAP),3,26,224.37,108,69
+SB-MOT-0032,Motor 30 kW IP55,4,27,58.75,19,34
+SB-AGI-0033,Agitador tanque 5 m³,3,14,67.26,13,26
+SB-AGI-0034,Agitador tanque 5 m³,3,14,101.82,1,1
+MP-KCL-0035,Cloreto de potássio (KCl),2,41,241.65,70,30
+MP-KCL-0036,Cloreto de potássio (KCl),3,35,314.03,89,40
+SB-MOT-0037,Motor 30 kW IP55,4,18,150.88,26,44
+MP-MAP-0038,Fosfato monoamônico (MAP),3,60,149.26,175,107
+MP-KCL-0039,Cloreto de potássio (KCl),4,37,273.49,195,84
+IP-CAT-0040,Catalisador linha amônia,4,13,173.7,36,55
+SB-AGI-0041,Agitador tanque 5 m³,2,17,59.21,6,6
+MP-URE-0042,Ureia (46% N),3,34,179.36,114,83
+SB-COR-0043,Correia transportadora 800 mm,1,14,136.14,49,62
+IP-ADP-0044,Aditivo anti-empedrante granulação,2,33,162.32,107,150
+IP-FLX-0045,Fluxo para granulação,2,20,140.91,96,86
+MP-MAP-0046,Fosfato monoamônico (MAP),5,29,200.36,143,103
+SB-COR-0047,Correia transportadora 800 mm,3,22,99.34,15,18
+SB-COR-0048,Correia transportadora 800 mm,4,5,120.9,44,82
+SB-COR-0049,Correia transportadora 800 mm,4,18,126.99,39,74
+IP-CAT-0050,Catalisador linha amônia,4,23,237.49,99,124
+MP-NH3-0051,Amônia anidra (NH₃),2,44,188.17,154,36
+SB-ROL-0052,Rolamento 6205-2RS,3,7,160.48,36,52
+IP-ADP-0053,Aditivo anti-empedrante granulação,5,29,140.78,75,73
+MP-URE-0054,Ureia (46% N),5,25,183.24,129,50
+MP-KCL-0055,Cloreto de potássio (KCl),4,36,239.62,75,52
+SB-AGI-0056,Agitador tanque 5 m³,5,14,63.59,1,1
+SB-AGI-0057,Agitador tanque 5 m³,3,22,37.92,20,33
+IP-ADP-0058,Aditivo anti-empedrante granulação,4,18,139.06,47,39
+MP-KCL-0059,Cloreto de potássio (KCl),3,30,303.73,152,91
+SB-AGI-0060,Agitador tanque 5 m³,4,11,128.82,16,20
+SB-AGI-0061,Agitador tanque 5 m³,3,16,104.74,3,4
+SB-COR-0062,Correia transportadora 800 mm,1,15,124.33,27,37
+SB-SEN-0063,Sensor de nível ultrassônico,2,16,77.4,6,9
+SB-ROL-0064,Rolamento 6205-2RS,4,11,103.33,12,13
+SB-COR-0065,Correia transportadora 800 mm,1,10,101.28,42,60
+MP-NH3-0066,Amônia anidra (NH₃),3,39,245.87,71,46
+IP-FLX-0067,Fluxo para granulação,3,12,98.18,12,11
+SB-AGI-0068,Agitador tanque 5 m³,2,20,56.56,25,27
+SB-ROL-0069,Rolamento 6205-2RS,2,10,67.09,35,55
+IP-ANT-0070,Antiespumante para reator,1,29,177.7,46,32
+IP-FLX-0071,Fluxo para granulação,3,19,167.18,12,14
+SB-COR-0072,Correia transportadora 800 mm,2,22,54.3,1,1
+IP-FLX-0073,Fluxo para granulação,3,9,130.63,76,45
+MP-DAP-0074,Fosfato diamônico (DAP),2,45,231.49,102,42
+IP-CAT-0075,Catalisador linha amônia,3,37,142.53,87,74
+MP-DAP-0076,Fosfato diamônico (DAP),2,43,278.66,157,103
+IP-FLX-0077,Fluxo para granulação,3,20,270.95,18,21
+SB-BOM-0078,Bomba centrífuga aço inox 3”,3,22,89.98,9,10
+SB-VAL-0079,Válvula esfera 2” PVDF,4,15,97.71,29,45
+SB-VAL-0080,Válvula esfera 2” PVDF,5,8,96.71,11,18
+SB-COR-0081,Correia transportadora 800 mm,2,23,10,27,41
+SB-ROL-0082,Rolamento 6205-2RS,3,4,128.32,45,73
+MP-NH3-0083,Amônia anidra (NH₃),3,29,320.76,144,38
+MP-KCL-0084,Cloreto de potássio (KCl),4,24,249.3,83,49
+SB-BOM-0085,Bomba centrífuga aço inox 3”,2,8,105.39,37,50
+MP-KCL-0086,Cloreto de potássio (KCl),3,44,208.04,137,50
+IP-ADP-0087,Aditivo anti-empedrante granulação,3,21,183.72,78,72
+SB-SEN-0088,Sensor de nível ultrassônico,2,8,65.05,53,83
+MP-NH3-0089,Amônia anidra (NH₃),3,34,276.62,52,19
+SB-VAL-0090,Válvula esfera 2” PVDF,4,25,122.7,1,1
+SB-ROL-0091,Rolamento 6205-2RS,2,13,92.39,20,33
+SB-MOT-0092,Motor 30 kW IP55,2,5,98.23,2,3
+SB-MOT-0093,Motor 30 kW IP55,4,12,117.15,22,29
+SB-AGI-0094,Agitador tanque 5 m³,5,17,115.65,1,1
+SB-MOT-0095,Motor 30 kW IP55,2,30,80.76,20,33
+SB-VAL-0096,Válvula esfera 2” PVDF,2,11,196.98,3,4
+SB-ROL-0097,Rolamento 6205-2RS,3,16,93.78,21,36
+SB-MOT-0098,Motor 30 kW IP55,1,23,73.5,31,40
+SB-BOM-0099,Bomba centrífuga aço inox 3”,2,23,149.55,31,45
+SB-ROL-0100,Rolamento 6205-2RS,3,3,46.18,27,46
+IP-FLX-0101,Fluxo para granulação,5,20,215.48,28,22
+MP-AMN-0102,Nitrato de amônio,2,34,248.68,123,104
+IP-FLX-0103,Fluxo para granulação,3,23,185.07,49,34
+SB-MOT-0104,Motor 30 kW IP55,3,17,35.55,6,6
+SB-AGI-0105,Agitador tanque 5 m³,4,18,115.31,28,43
+SB-COR-0106,Correia transportadora 800 mm,4,9,76.09,41,70
+SB-SEN-0107,Sensor de nível ultrassônico,4,6,79.33,1,1
+SB-BOM-0108,Bomba centrífuga aço inox 3”,5,32,145.51,35,44
+SB-AGI-0109,Agitador tanque 5 m³,3,19,42.77,25,34
+IP-ADP-0110,Aditivo anti-empedrante granulação,1,30,210.29,40,33
+IP-ADP-0111,Aditivo anti-empedrante granulação,3,22,171.2,73,85
+SB-ROL-0112,Rolamento 6205-2RS,2,18,43.42,12,18
+SB-ROL-0113,Rolamento 6205-2RS,3,24,33.96,55,82
+MP-KCL-0114,Cloreto de potássio (KCl),2,21,309.81,72,25
+SB-MOT-0115,Motor 30 kW IP55,3,3,113.47,54,101
+MP-AMN-0116,Nitrato de amônio,4,34,230.78,96,65
+MP-URE-0117,Ureia (46% N),4,30,187.6,150,79
+IP-FLX-0118,Fluxo para granulação,5,32,145.37,36,33
+SB-VAL-0119,Válvula esfera 2” PVDF,5,19,65.74,28,36
+SB-COR-0120,Correia transportadora 800 mm,3,27,91.04,35,44
+SB-ROL-0121,Rolamento 6205-2RS,3,7,81.17,7,9
+IP-CAT-0122,Catalisador linha amônia,3,32,145.55,23,29
+IP-FLX-0123,Fluxo para granulação,4,19,62.26,32,38
+SB-ROL-0124,Rolamento 6205-2RS,1,19,85.44,38,55
+SB-BOM-0125,Bomba centrífuga aço inox 3”,3,6,82.82,22,28
+MP-DAP-0126,Fosfato diamônico (DAP),1,36,166.14,91,41
+IP-FLX-0127,Fluxo para granulação,3,38,130.05,81,68
+SB-VAL-0128,Válvula esfera 2” PVDF,3,2,23.86,49,73
+MP-H2SO4-0129,Ácido sulfúrico (H₂SO₄),1,33,189.12,136,101
+IP-ANT-0130,Antiespumante para reator,3,22,196.68,78,93
+SB-VAL-0131,Válvula esfera 2” PVDF,3,19,138.89,8,13
+SB-VAL-0132,Válvula esfera 2” PVDF,4,9,97.4,24,36
+SB-AGI-0133,Agitador tanque 5 m³,2,11,85.48,66,85
+SB-AGI-0134,Agitador tanque 5 m³,3,14,167.28,29,48
+MP-KCL-0135,Cloreto de potássio (KCl),4,28,265.42,117,65
+IP-ANT-0136,Antiespumante para reator,3,11,119.38,59,55
+IP-ADP-0137,Aditivo anti-empedrante granulação,2,26,114.31,65,56
+MP-NH3-0138,Amônia anidra (NH₃),5,31,119.0,149,53
+SB-MOT-0139,Motor 30 kW IP55,5,15,79.88,19,30
+IP-FLX-0140,Fluxo para granulação,3,27,173.77,5,4
+SB-COR-0141,Correia transportadora 800 mm,2,24,166.15,61,80
+SB-COR-0142,Correia transportadora 800 mm,4,30,157.98,49,93
+SB-ROL-0143,Rolamento 6205-2RS,1,29,75.24,7,12
+SB-ROL-0144,Rolamento 6205-2RS,3,5,138.89,23,38
+IP-CAT-0145,Catalisador linha amônia,3,11,162.39,80,75
+SB-AGI-0146,Agitador tanque 5 m³,2,22,11.61,20,33
+SB-MOT-0147,Motor 30 kW IP55,3,18,89.49,26,45
+IP-FLX-0148,Fluxo para granulação,4,11,108.0,87,70
+SB-MOT-0149,Motor 30 kW IP55,4,22,97.86,1,1
+MP-H2SO4-0150,Ácido sulfúrico (H₂SO₄),2,17,331.62,111,60
+SB-COR-0151,Correia transportadora 800 mm,5,16,74.33,30,53
+MP-MAP-0152,Fosfato monoamônico (MAP),4,35,256.29,106,60
+MP-AMN-0153,Nitrato de amônio,3,38,172.96,130,32
+MP-AMN-0154,Nitrato de amônio,4,49,213.17,125,63
+MP-MAP-0155,Fosfato monoamônico (MAP),1,37,170.02,108,76
+SB-SEN-0156,Sensor de nível ultrassônico,3,17,99.49,11,17
+IP-CAT-0157,Catalisador linha amônia,3,27,144.99,70,42
+IP-ANT-0158,Antiespumante para reator,3,35,171.29,28,32
+SB-BOM-0159,Bomba centrífuga aço inox 3”,3,20,69.14,29,45
+SB-AGI-0160,Agitador tanque 5 m³,3,3,205.16,8,11
+MP-H2SO4-0161,Ácido sulfúrico (H₂SO₄),4,48,287.23,156,66
+IP-CAT-0162,Catalisador linha amônia,2,8,198.31,27,32
+IP-ADP-0163,Aditivo anti-empedrante granulação,4,20,170.44,68,65
+MP-URE-0164,Ureia (46% N),5,34,152.44,129,84
+SB-AGI-0165,Agitador tanque 5 m³,4,20,115.96,12,14
+SB-MOT-0166,Motor 30 kW IP55,3,8,68.03,15,21
+MP-URE-0167,Ureia (46% N),2,25,292.15,144,101
+IP-ANT-0168,Antiespumante para reator,2,13,103.68,57,54
+SB-MOT-0169,Motor 30 kW IP55,1,11,110.38,38,65
+SB-BOM-0170,Bomba centrífuga aço inox 3”,2,23,116.81,13,21
+IP-ADP-0171,Aditivo anti-empedrante granulação,2,27,86.17,67,69
+SB-AGI-0172,Agitador tanque 5 m³,3,22,111.23,6,9
+MP-KCL-0173,Cloreto de potássio (KCl),3,44,268.66,107,95
+SB-BOM-0174,Bomba centrífuga aço inox 3”,5,19,203.45,34,52
+SB-COR-0175,Correia transportadora 800 mm,2,14,125.65,49,74
+IP-CAT-0176,Catalisador linha amônia,4,6,149.84,63,58
+MP-URE-0177,Ureia (46% N),3,30,227.05,103,81
+SB-MOT-0178,Motor 30 kW IP55,3,16,95.44,12,21
+SB-MOT-0179,Motor 30 kW IP55,3,28,130.58,25,44
+IP-ADP-0180,Aditivo anti-empedrante granulação,3,24,114.62,61,56
+SB-VAL-0181,Válvula esfera 2” PVDF,4,21,69.33,21,23
+MP-AMN-0182,Nitrato de amônio,1,34,263.18,158,138
+SB-AGI-0183,Agitador tanque 5 m³,5,1,92.48,26,33
+SB-AGI-0184,Agitador tanque 5 m³,3,22,87.01,37,54
+IP-ADP-0185,Aditivo anti-empedrante granulação,3,28,85.92,54,57
+MP-MAP-0186,Fosfato monoamônico (MAP),3,37,195.63,171,51
+SB-ROL-0187,Rolamento 6205-2RS,5,1,41.96,24,34
+SB-VAL-0188,Válvula esfera 2” PVDF,1,11,130.94,28,43
+SB-MOT-0189,Motor 30 kW IP55,4,18,88.15,22,32
+SB-SEN-0190,Sensor de nível ultrassônico,3,10,86.65,16,25
+IP-ANT-0191,Antiespumante para reator,4,28,80.0,70,72
+MP-H2SO4-0192,Ácido sulfúrico (H₂SO₄),1,53,100,101,53
+SB-MOT-0193,Motor 30 kW IP55,4,10,144.31,20,28
+MP-KCL-0194,Cloreto de potássio (KCl),4,19,306.74,143,46
+SB-AGI-0195,Agitador tanque 5 m³,1,18,80.74,16,20
+IP-CAT-0196,Catalisador linha amônia,2,15,221.47,101,188
+MP-NH3-0197,Amônia anidra (NH₃),1,51,291.33,162,39
+IP-CAT-0198,Catalisador linha amônia,3,20,133.4,76,97
+SB-AGI-0199,Agitador tanque 5 m³,3,7,105.7,20,27
+MP-H2SO4-0200,Ácido sulfúrico (H₂SO₄),4,36,170.04,127,141
+SB-VAL-0201,Válvula esfera 2” PVDF,2,1,161.6,41,60
+IP-FLX-0202,Fluxo para granulação,2,43,130.62,64,57
+SB-COR-0203,Correia transportadora 800 mm,2,2,157.55,20,25
+MP-AMN-0204,Nitrato de amônio,5,31,370.43,145,111
+MP-DAP-0205,Fosfato diamônico (DAP),3,55,112.82,85,59
+IP-ANT-0206,Antiespumante para reator,3,23,158.46,103,86
+SB-VAL-0207,Válvula esfera 2” PVDF,4,32,111.29,1,1
+IP-ANT-0208,Antiespumante para reator,5,26,144.54,63,70
+SB-ROL-0209,Rolamento 6205-2RS,3,20,111.21,23,35
+SB-ROL-0210,Rolamento 6205-2RS,3,29,119.28,6,9
+SB-AGI-0211,Agitador tanque 5 m³,3,20,123.24,16,22
+SB-BOM-0212,Bomba centrífuga aço inox 3”,4,7,84.44,43,61
+SB-BOM-0213,Bomba centrífuga aço inox 3”,2,8,118.64,1,1
+MP-NH3-0214,Amônia anidra (NH₃),3,43,241.42,109,56
+SB-VAL-0215,Válvula esfera 2” PVDF,4,24,103.82,28,38
+IP-FLX-0216,Fluxo para granulação,3,12,82.74,99,112
+MP-URE-0217,Ureia (46% N),3,41,100,106,80
+SB-ROL-0218,Rolamento 6205-2RS,4,14,156.91,30,50
+SB-MOT-0219,Motor 30 kW IP55,3,12,160.93,11,17
+SB-MOT-0220,Motor 30 kW IP55,3,24,82.3,1,1
+SB-AGI-0221,Agitador tanque 5 m³,2,7,109.39,34,50
+MP-MAP-0222,Fosfato monoamônico (MAP),4,29,169.25,86,40
+IP-ANT-0223,Antiespumante para reator,3,21,50,39,33
+SB-BOM-0224,Bomba centrífuga aço inox 3”,4,25,115.88,7,12
+SB-VAL-0225,Válvula esfera 2” PVDF,2,21,40.98,17,26
+SB-MOT-0226,Motor 30 kW IP55,5,7,124.76,7,9
+IP-ANT-0227,Antiespumante para reator,2,14,122.5,30,35
+MP-H2SO4-0228,Ácido sulfúrico (H₂SO₄),4,40,297.81,137,75
+SB-VAL-0229,Válvula esfera 2” PVDF,2,21,89.25,40,55
+SB-ROL-0230,Rolamento 6205-2RS,5,20,145.91,52,77
+SB-AGI-0231,Agitador tanque 5 m³,4,13,102.0,1,1
+SB-AGI-0232,Agitador tanque 5 m³,2,5,35.9,17,25
+MP-NH3-0233,Amônia anidra (NH₃),5,23,222.49,79,39
+MP-URE-0234,Ureia (46% N),3,46,248.32,110,41
+IP-ANT-0235,Antiespumante para reator,3,31,180.94,85,93
+MP-NH3-0236,Amônia anidra (NH₃),3,38,121.77,163,175
+SB-BOM-0237,Bomba centrífuga aço inox 3”,5,19,47.85,22,35
+MP-KCL-0238,Cloreto de potássio (KCl),3,53,136.97,119,105
+MP-MAP-0239,Fosfato monoamônico (MAP),3,31,199.58,86,33
+MP-KCL-0240,Cloreto de potássio (KCl),4,31,126.19,148,56
+MP-URE-0241,Ureia (46% N),3,54,181.82,117,86
+SB-BOM-0242,Bomba centrífuga aço inox 3”,3,3,90.69,15,29
+SB-AGI-0243,Agitador tanque 5 m³,3,7,114.47,21,29
+IP-ADP-0244,Aditivo anti-empedrante granulação,4,18,123.11,51,34
+SB-VAL-0245,Válvula esfera 2” PVDF,2,15,41.99,33,52
+IP-CAT-0246,Catalisador linha amônia,2,31,173.66,34,40
+SB-VAL-0247,Válvula esfera 2” PVDF,2,22,10,23,31
+SB-ROL-0248,Rolamento 6205-2RS,3,8,90.27,60,94
+SB-VAL-0249,Válvula esfera 2” PVDF,4,12,83.68,21,37
+SB-MOT-0250,Motor 30 kW IP55,4,1,72.28,1,1
+SB-MOT-0251,Motor 30 kW IP55,2,17,93.64,11,15
+IP-FLX-0252,Fluxo para granulação,2,25,109.66,97,94
+SB-ROL-0253,Rolamento 6205-2RS,2,1,174.14,11,15
+SB-ROL-0254,Rolamento 6205-2RS,3,12,89.99,33,54
+IP-CAT-0255,Catalisador linha amônia,4,18,210.8,99,150
+MP-MAP-0256,Fosfato monoamônico (MAP),3,20,216.16,68,41
+MP-MAP-0257,Fosfato monoamônico (MAP),4,19,100,58,24
+SB-BOM-0258,Bomba centrífuga aço inox 3”,3,9,72.03,2,2
+MP-URE-0259,Ureia (46% N),4,28,198.55,81,32
+MP-H2SO4-0260,Ácido sulfúrico (H₂SO₄),3,35,311.16,112,53
+IP-FLX-0261,Fluxo para granulação,4,21,102.16,68,37
+SB-BOM-0262,Bomba centrífuga aço inox 3”,3,12,43.48,1,1
+IP-CAT-0263,Catalisador linha amônia,4,13,165.47,24,21
+SB-COR-0264,Correia transportadora 800 mm,3,11,38.55,29,47
+MP-MAP-0265,Fosfato monoamônico (MAP),3,37,111.6,103,39
+SB-COR-0266,Correia transportadora 800 mm,5,13,57.57,8,11
+IP-ADP-0267,Aditivo anti-empedrante granulação,4,42,124.58,54,62
+IP-FLX-0268,Fluxo para granulação,2,15,81.12,70,95
+SB-MOT-0269,Motor 30 kW IP55,4,22,132.01,15,21
+SB-AGI-0270,Agitador tanque 5 m³,4,15,108.27,16,27
+MP-KCL-0271,Cloreto de potássio (KCl),3,41,214.32,72,18
+SB-COR-0272,Correia transportadora 800 mm,1,21,82.09,5,5
+SB-SEN-0273,Sensor de nível ultrassônico,3,13,12.24,57,91
+SB-BOM-0274,Bomba centrífuga aço inox 3”,5,23,89.29,1,1
+SB-BOM-0275,Bomba centrífuga aço inox 3”,2,25,93.02,58,107
+SB-SEN-0276,Sensor de nível ultrassônico,2,1,77.23,36,60
+SB-MOT-0277,Motor 30 kW IP55,4,19,127.8,24,39
+SB-SEN-0278,Sensor de nível ultrassônico,3,12,66.69,8,10
+IP-ADP-0279,Aditivo anti-empedrante granulação,2,37,188.56,65,71
+MP-MAP-0280,Fosfato monoamônico (MAP),3,25,270.88,116,90
+SB-MOT-0281,Motor 30 kW IP55,2,8,39.46,31,47
+IP-ADP-0282,Aditivo anti-empedrante granulação,2,19,83.62,82,76
+SB-ROL-0283,Rolamento 6205-2RS,3,22,144.48,12,16
+IP-CAT-0284,Catalisador linha amônia,3,26,74.69,23,18
+SB-MOT-0285,Motor 30 kW IP55,3,24,114.3,42,67
+SB-VAL-0286,Válvula esfera 2” PVDF,4,23,157.48,3,4
+IP-FLX-0287,Fluxo para granulação,1,28,98.74,32,31
+IP-ADP-0288,Aditivo anti-empedrante granulação,3,23,100.5,76,53
+MP-MAP-0289,Fosfato monoamônico (MAP),5,30,136.83,198,149
+IP-ADP-0290,Aditivo anti-empedrante granulação,3,10,196.38,66,29
+IP-FLX-0291,Fluxo para granulação,5,5,185.46,52,54
+SB-VAL-0292,Válvula esfera 2” PVDF,3,10,59.61,33,56
+SB-VAL-0293,Válvula esfera 2” PVDF,4,21,32.12,41,60
+IP-FLX-0294,Fluxo para granulação,5,28,116.23,48,54
+SB-BOM-0295,Bomba centrífuga aço inox 3”,5,26,101.82,1,1
+MP-URE-0296,Ureia (46% N),1,37,230.84,69,28
+SB-ROL-0297,Rolamento 6205-2RS,2,5,108.65,25,28
+SB-VAL-0298,Válvula esfera 2” PVDF,4,20,30.59,16,27
+IP-ADP-0299,Aditivo anti-empedrante granulação,2,45,50,34,33
+SB-SEN-0300,Sensor de nível ultrassônico,3,27,29.57,13,17
+SB-AGI-0301,Agitador tanque 5 m³,2,8,28.18,18,30
+IP-FLX-0302,Fluxo para granulação,3,25,185.67,68,62
+MP-DAP-0303,Fosfato diamônico (DAP),2,50,202.04,139,98
+SB-ROL-0304,Rolamento 6205-2RS,2,17,75.56,23,31
+SB-SEN-0305,Sensor de nível ultrassônico,4,18,93.82,31,38
+MP-AMN-0306,Nitrato de amônio,5,42,173.94,126,74
+SB-BOM-0307,Bomba centrífuga aço inox 3”,4,14,22.99,44,59
+IP-CAT-0308,Catalisador linha amônia,3,8,122.22,37,43
+MP-KCL-0309,Cloreto de potássio (KCl),4,44,167.34,140,41
+IP-CAT-0310,Catalisador linha amônia,2,17,187.52,43,40
+MP-KCL-0311,Cloreto de potássio (KCl),3,24,185.28,140,104
+SB-ROL-0312,Rolamento 6205-2RS,3,1,60.0,11,19
+SB-AGI-0313,Agitador tanque 5 m³,4,10,91.43,27,37
+IP-ANT-0314,Antiespumante para reator,1,6,135.68,101,117
+MP-AMN-0315,Nitrato de amônio,3,39,177.56,118,67
+IP-FLX-0316,Fluxo para granulação,1,24,142.5,34,32
+SB-SEN-0317,Sensor de nível ultrassônico,4,16,88.95,33,40
+SB-BOM-0318,Bomba centrífuga aço inox 3”,2,23,65.98,26,46
+IP-FLX-0319,Fluxo para granulação,4,47,210.27,41,42
+MP-NH3-0320,Amônia anidra (NH₃),1,45,136.73,162,54
+IP-FLX-0321,Fluxo para granulação,3,26,152.38,73,88
+SB-SEN-0322,Sensor de nível ultrassônico,2,36,74.67,51,62
+SB-AGI-0323,Agitador tanque 5 m³,5,21,60.5,30,45
+SB-SEN-0324,Sensor de nível ultrassônico,2,12,68.93,26,38
+MP-NH3-0325,Amônia anidra (NH₃),2,32,151.37,141,92
+SB-ROL-0326,Rolamento 6205-2RS,4,10,45.26,6,10
+SB-BOM-0327,Bomba centrífuga aço inox 3”,4,1,89.46,40,62
+IP-FLX-0328,Fluxo para granulação,3,33,141.38,30,22
+MP-KCL-0329,Cloreto de potássio (KCl),1,46,193.1,94,31
+SB-COR-0330,Correia transportadora 800 mm,4,15,105.63,23,38
+MP-DAP-0331,Fosfato diamônico (DAP),3,32,250.35,154,93
+MP-AMN-0332,Nitrato de amônio,1,45,258.76,75,38
+MP-KCL-0333,Cloreto de potássio (KCl),2,48,272.17,102,79
+IP-ANT-0334,Antiespumante para reator,3,22,86.77,78,77
+SB-VAL-0335,Válvula esfera 2” PVDF,3,19,115.93,19,28
+IP-FLX-0336,Fluxo para granulação,3,26,103.66,97,86
+SB-ROL-0337,Rolamento 6205-2RS,3,20,111.23,37,53
+SB-MOT-0338,Motor 30 kW IP55,3,7,105.57,34,42
+IP-CAT-0339,Catalisador linha amônia,4,18,154.11,42,46
+SB-SEN-0340,Sensor de nível ultrassônico,3,16,55.19,20,36
+SB-VAL-0341,Válvula esfera 2” PVDF,5,6,62.49,17,21
+IP-CAT-0342,Catalisador linha amônia,4,17,165.65,43,28
+IP-FLX-0343,Fluxo para granulação,3,30,182.58,59,65
+IP-FLX-0344,Fluxo para granulação,5,36,146.66,35,39
+SB-SEN-0345,Sensor de nível ultrassônico,3,35,114.08,16,18
+SB-BOM-0346,Bomba centrífuga aço inox 3”,1,16,31.85,11,19
+SB-AGI-0347,Agitador tanque 5 m³,1,2,10,11,19
+MP-AMN-0348,Nitrato de amônio,3,20,214.32,74,35
+IP-CAT-0349,Catalisador linha amônia,5,23,159.22,80,90
+MP-H2SO4-0350,Ácido sulfúrico (H₂SO₄),3,41,267.04,93,59
+IP-FLX-0351,Fluxo para granulação,4,23,95.97,66,67
+MP-MAP-0352,Fosfato monoamônico (MAP),2,24,135.64,178,194
+MP-AMN-0353,Nitrato de amônio,3,28,284.45,50,34
+MP-H2SO4-0354,Ácido sulfúrico (H₂SO₄),3,32,227.05,100,51
+IP-CAT-0355,Catalisador linha amônia,1,29,230.33,63,58
+SB-VAL-0356,Válvula esfera 2” PVDF,3,11,109.79,41,69
+SB-MOT-0357,Motor 30 kW IP55,4,5,58.53,13,18
+SB-COR-0358,Correia transportadora 800 mm,4,8,26.29,42,57
+IP-CAT-0359,Catalisador linha amônia,3,22,179.89,49,38
+MP-DAP-0360,Fosfato diamônico (DAP),5,22,257.59,32,15
+MP-AMN-0361,Nitrato de amônio,1,28,222.5,102,81
+IP-ANT-0362,Antiespumante para reator,3,18,153.18,36,42
+IP-FLX-0363,Fluxo para granulação,1,8,198.39,49,49
+SB-MOT-0364,Motor 30 kW IP55,3,20,95.82,18,33
+SB-ROL-0365,Rolamento 6205-2RS,4,11,83.97,44,75
+IP-ANT-0366,Antiespumante para reator,4,25,96.15,65,78
+SB-VAL-0367,Válvula esfera 2” PVDF,4,5,235.85,11,17
+IP-ANT-0368,Antiespumante para reator,3,26,113.7,72,54
+SB-AGI-0369,Agitador tanque 5 m³,4,5,114.14,30,34
+SB-SEN-0370,Sensor de nível ultrassônico,2,13,138.82,14,24
+MP-NH3-0371,Amônia anidra (NH₃),4,9,206.41,128,64
+IP-ANT-0372,Antiespumante para reator,2,45,145.26,95,122
+SB-COR-0373,Correia transportadora 800 mm,3,15,167.04,18,28
+SB-ROL-0374,Rolamento 6205-2RS,3,4,106.84,29,41
+MP-MAP-0375,Fosfato monoamônico (MAP),4,21,242.75,49,19
+MP-DAP-0376,Fosfato diamônico (DAP),3,22,138.9,161,50
+SB-COR-0377,Correia transportadora 800 mm,3,16,120.73,31,41
+SB-ROL-0378,Rolamento 6205-2RS,3,19,10,25,35
+SB-BOM-0379,Bomba centrífuga aço inox 3”,5,26,145.58,24,36
+MP-H2SO4-0380,Ácido sulfúrico (H₂SO₄),4,55,141.98,93,91
+MP-MAP-0381,Fosfato monoamônico (MAP),3,34,287.5,139,73
+IP-CAT-0382,Catalisador linha amônia,1,21,159.41,74,79
+SB-SEN-0383,Sensor de nível ultrassônico,5,14,85.06,15,17
+IP-CAT-0384,Catalisador linha amônia,1,17,155.04,98,116
+IP-ADP-0385,Aditivo anti-empedrante granulação,5,36,215.39,60,53
+MP-KCL-0386,Cloreto de potássio (KCl),2,19,182.78,139,105
+SB-ROL-0387,Rolamento 6205-2RS,2,8,61.19,31,59
+MP-H2SO4-0388,Ácido sulfúrico (H₂SO₄),2,11,339.81,111,77
+MP-KCL-0389,Cloreto de potássio (KCl),1,19,153.67,99,105
+SB-MOT-0390,Motor 30 kW IP55,3,18,142.53,30,50
+SB-COR-0391,Correia transportadora 800 mm,3,23,76.86,38,62
+SB-BOM-0392,Bomba centrífuga aço inox 3”,3,33,82.32,45,80
+IP-CAT-0393,Catalisador linha amônia,1,26,50,60,57
+MP-URE-0394,Ureia (46% N),4,60,140.25,93,64
+SB-ROL-0395,Rolamento 6205-2RS,2,14,74.16,4,5
+IP-CAT-0396,Catalisador linha amônia,4,30,145.33,44,54
+SB-AGI-0397,Agitador tanque 5 m³,1,26,115.0,21,23
+MP-DAP-0398,Fosfato diamônico (DAP),3,47,284.17,175,122
+MP-URE-0399,Ureia (46% N),3,30,114.94,170,174
+SB-AGI-0400,Agitador tanque 5 m³,4,14,128.51,24,26
