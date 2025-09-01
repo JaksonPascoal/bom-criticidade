@@ -57,3 +57,8 @@ df_out = df[cols_out].sort_values("score_criticidade", ascending=False)
 
 df_out.to_csv(OUT, index=False, encoding="utf-8")
 print(f"[OK] Processado: {OUT} | linhas: {len(df_out)}")
+
+import shutil, os
+os.makedirs("docs/data/processed", exist_ok=True)
+shutil.copyfile(OUT, "docs/data/processed/criticidade.csv")
+print("[OK] Copiado também para docs/data/processed/criticidade.csv")
