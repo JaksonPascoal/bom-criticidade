@@ -1,41 +1,55 @@
-// script.js
+async function loadCSV(path) {
+  const res = await fetch(path);
+  const text = await res.text();
+  const lines = text.trim().split("\n");
+  const headers = lines[0].split(",");
+  const rows = lines.slice(1).map(l => {
+    const cols = l.split(",");
+    const obj = {};
+    headers.forEach((h, i) => obj[h] = cols[i]);
+    return obj;
+  });
+  return rows;
+}
 
-document.addEventListener('DOMContentLoaded', function() {
-    fetch('./data/criticality_data.json')
-        .then(response => response.json())
-        .then(data => {
-            const labels = data.map(item => item.criticality_level);
-            const dataValues = data.map(item => item.number_of_materials);
+(async () => {
+  const data = await loadCSV("../data/processed/criticidade.csv");
+  // Top 20 por score
+  const sorted = data.sort((a,b) => parseFloat(b.score_criticidade) - parseFloat(a.score_criticidade)).slice(0,20);
 
-            const ctx = document.getElementById('criticalityChart').getContext('2d');
-            const criticalityChart = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: labels,
-                    datasets: [{
-                        label: 'Número de Materiais por Nível de Criticidade',
-                        data: dataValues,
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 0.6)', // Alta (vermelho)
-                            'rgba(54, 162, 235, 0.6)',  // Baixa (azul)
-                            'rgba(255, 206, 86, 0.6)'   // Media (amarelo)
-                        ],
-                        borderColor: [
-                            'rgba(255, 99, 132, 1)',
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(255, 206, 86, 1)'
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    scales: {
-                        y: {
-                            beginAtZero: true
-                        }
-                    }
-                }
-            });
-        })
-        .catch(error => console.error('Erro ao carregar o JSON:', error));
-});
+  const labels = sorted.map(r => r.material_id);
+  const scores = sorted.map(r => parseFloat(r.score_criticidade));
+  const lead   = sorted.map(r => Number(r.lead_time_dias));
+  const custo  = sorted.map(r => Number(r.custo_unitario));
+
+  const ctx = document.getElementById("critChart").getContext("2d");
+  new Chart(ctx, {
+    type: "bar",
+    data: {
+      labels,
+      datasets: [{
+        label: "Score de Criticidade",
+        data: scores
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        tooltip: {
+          callbacks: {
+            afterBody: (items) => {
+              const i = items[0].dataIndex;
+              return `lead_time: ${lead[i]} d | custo: ${custo[i]}`;
+            }
+          }
+        },
+        legend: { display: false }
+      },
+      scales: {
+        x: { ticks: { autoSkip: false, maxRotation: 60, minRotation: 0 } },
+        y: { beginAtZero: true }
+      }
+    }
+  });
+})();

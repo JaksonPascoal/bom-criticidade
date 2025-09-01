@@ -1,28 +1,28 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard de Análise de Criticidade - Projeto BOM</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BOM Criticidade — Top 20</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <header>
-        <h1>Análise de Criticidade de Materiais</h1>
-        <p>Visualização dos dados de inventário e criticidade do projeto BOM.</p>
-    </header>
+  <header>
+    <h1>Top 20 Materiais por Criticidade</h1>
+    <p>Score baseado em engenharia, lead time, custo e cobertura.</p>
+  </header>
 
-    <main>
-        <div class="chart-container">
-            <canvas id="criticalityChart"></canvas>
-        </div>
-    </main>
+  <main class="chart-wrap">
+    <div class="chart">
+      <canvas id="critChart"></canvas>
+    </div>
+  </main>
 
-    <footer>
-        <p>&copy; 2025 PascoalIA | Projeto de Portfólio</p>
-    </footer>
+  <footer>
+    <small>© Pasqual — BOM Criticidade (MVP)</small>
+  </footer>
 
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
