@@ -6,6 +6,7 @@
   <title>BOM Criticidade - Fertilizantes </title>
   <link rel="stylesheet" href="styles.css"/>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
 </head>
 <body>
   <header>
@@ -34,6 +35,30 @@
       <canvas id="barCritEng"></canvas>
     </div>
   </div>
+
+  <section class="cards">
+  <div class="card">
+    <h3>Risco de Stockout (Lead Time × Cobertura)</h3>
+    <canvas id="scatterRisk" height="130"></canvas>
+  </div>
+  <div class="card">
+    <h3>Pareto ABC por Valor Anual</h3>
+    <canvas id="paretoABC" height="130"></canvas>
+  </div>
+</section>
+
+<section class="card">
+  <h3>Top Itens em Risco</h3>
+  <table id="riskTable">
+    <thead>
+      <tr>
+        <th>Material</th><th>Eng</th><th>LT(d)</th><th>Cov(d)</th>
+        <th>Score</th><th>Risk</th><th>Sugerido</th><th>Ação</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</section>
 </main>
 
 

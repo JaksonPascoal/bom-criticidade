@@ -26,3 +26,11 @@ body{background:#0f1115;color:var(--fg);}
 h1{letter-spacing:.2px}
 .chart{height:52vh}
 .small{font-size:.9rem;color:var(--muted);text-align:center;margin:6px 0}
+
+.cards { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit,minmax(320px,1fr)); }
+.card { background: #121212; padding: 16px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,.3); }
+#riskTable { width: 100%; border-collapse: collapse; }
+#riskTable th, #riskTable td { padding: 8px 10px; border-bottom: 1px solid #2a2a2a; text-align: right; }
+#riskTable th:first-child, #riskTable td:first-child { text-align: left; }
+#riskTable tbody tr:nth-child(odd){ background: rgba(255,255,255,0.02); }
+
