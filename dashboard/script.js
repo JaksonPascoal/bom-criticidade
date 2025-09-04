@@ -1,243 +1,205 @@
+// dashboard/script.js
 
-// ---------- util & tema ----------
-const fmt = new Intl.NumberFormat("pt-BR", { maximumFractionDigits: 2 });
+// Caminho do CSV processado (use 'sample_criticidade.csv' se preferir)
+const DATA_PATH = "../data/processed/criticidade.csv"; // ou ../data/processed/sample_criticidade.csv
 
-// tenta puxar cores do :root; se não existir, usa fallback
-const root = getComputedStyle(document.documentElement);
-const tickColor = (root.getPropertyValue("--fg") || "#eaeaea").trim();
-const gridColor = (root.getPropertyValue("--grid") || "rgba(255,255,255,0.09)").trim();
-
-const axisFmt = v => fmt.format(v);
-
-// ---------- CSV loader com fallback de caminho ----------
-async function loadCSVWithFallback(paths) {
-  let lastErr;
-  for (const p of paths) {
-    try {
-      const res = await fetch(p);
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      const text = await res.text();
-      const lines = text.split(/\r?\n/).filter(l => l.trim().length > 0);
-      const headers = lines[0].split(",").map(h => h.trim());
-      const rows = lines.slice(1).map(l => {
-        const cols = l.split(",").map(c => c.trim());
-        const obj = {};
-        headers.forEach((h, i) => (obj[h] = cols[i]));
-        return obj;
-      });
-      return rows;
-    } catch (e) { lastErr = e; }
-  }
-  throw lastErr || new Error("Falha ao carregar CSV");
-}
-
-const toNum = x => {
-  const n = parseFloat(String(x).replace(",", "."));
-  return Number.isFinite(n) ? n : 0;
+// Utils ---------------------------------------------------------
+const toNum = (v) => (v === null || v === undefined || v === "" ? NaN : Number(v));
+const fmt = (n, d = 0) => (isNaN(n) ? "-" : Number(n).toFixed(d));
+const colorByEng = (eng) => {
+  // escala simples: 0 -> claro, 10 -> vermelho forte
+  const t = Math.max(0, Math.min(1, eng / 10));
+  const r = 200 + Math.round(55 * t);
+  const g = 80 - Math.round(60 * t);
+  const b = 80 - Math.round(60 * t);
+  return `rgba(${r},${Math.max(g,0)},${Math.max(b,0)},0.8)`;
 };
 
-(async () => {
-  try {
-    // 1º tenta Pages (/docs), depois ambiente local (/dashboard)
-    const data = await loadCSVWithFallback([
-      "data/processed/criticidade.csv",
-      "../data/processed/criticidade.csv",
-    ]);
-    if (!data.length) throw new Error("CSV sem linhas.");
-
-    const rows = data.map(r => ({
-      id: r.material_id || r.descricao || "item",
-      desc: r.descricao,
-      crit_eng: toNum(r.criticidade_engenharia),
-      lead: toNum(r.lead_time_dias),
-      custo: toNum(r.custo_unitario),
-      consumo: toNum(r.consumo_mensal),
-      estoque: toNum(r.estoque_atual),
-      cobertura: toNum(r.estoque_cobertura_meses),
-      score: toNum(r.score_criticidade)
-    }));
-
-    // ---------- 1) TOP 20 ----------
-    const top = [...rows].sort((a,b)=>b.score-a.score).slice(0,20);
-    const totalScore = rows.reduce((s,r)=>s + r.score, 0) || 1;
-
-    const labelsTop = top.map(r => r.id);
-    const scoresTop = top.map(r => r.score);
-    const descTop   = top.map(r => r.desc);
-
-    const ctxTop = document.getElementById("critChart").getContext("2d");
-    new Chart(ctxTop, {
-      type: "bar",
-      data: {
-        labels: labelsTop,
-        datasets: [{
-          label: "Score de Criticidade",
-          data: scoresTop,
-          backgroundColor: "rgba(77,171,247,0.85)",
-          borderColor: "rgba(77,171,247,1)",
-          borderWidth: 1
-        }]
-      },
-      options: {
-        responsive: true, maintainAspectRatio: false,
-        plugins: {
-          tooltip: {
-            callbacks: {
-              beforeBody: (items) => {
-                const i = items[0].dataIndex;
-                return descTop[i];
-              },
-              afterBody: (items) => {
-                const i = items[0].dataIndex;
-                const contrib = (scoresTop[i] / totalScore * 100).toFixed(2);
-                return `Contribuição no risco: ${contrib}%`;
-              },
-              label: (items) => `Score: ${fmt.format(items.raw)}`
-            }
-          },
-          legend: { display: false }
-        },
-        scales: {
-          x: { ticks: { color: tickColor, autoSkip: false, maxRotation: 60 }, grid: { color: gridColor } },
-          y: { beginAtZero:true, ticks:{ color:tickColor, callback:axisFmt }, grid:{ color:gridColor } }
-        }
-      }
+function parseCsv(path) {
+  return new Promise((resolve, reject) => {
+    Papa.parse(path, {
+      header: true,
+      download: true,
+      dynamicTyping: true,
+      skipEmptyLines: true,
+      complete: (res) => resolve(res.data),
+      error: reject,
     });
-
-    // ---------- 2) HISTOGRAMA do score ----------
-    const scores = rows.map(r=>r.score).filter(Number.isFinite);
-    const bins = makeBins(scores, 12);
-    makeBar("histScore", bins.labels, bins.counts, "Distribuição do Score");
-
-    // ---------- 3) Dispersão lead x custo (bolha = score) ----------
-    const maxScore = Math.max(...scores, 1e-6);
-    const bub = rows.map(r => ({
-      x: r.lead, y: r.custo,
-      r: 4 + 14*(r.score/maxScore),
-      label: `${r.id} — ${r.desc}`
-    }));
-    makeBubble("bubbleLeadCusto", bub, "Lead time × Custo (raio = score)");
-
-    // ---------- 4) Pareto (cumulativo do risco) ----------
-    const pareto = [...rows].sort((a,b)=>b.score-a.score);
-    const total = pareto.reduce((s,r)=>s+r.score,0) || 1;
-    let run = 0;
-    const pLabels = pareto.map((_,i)=> (i+1).toString());
-    const pBars   = pareto.map(r=>r.score);
-    const pCum    = pareto.map(r => (run += r.score) / total * 100);
-    makePareto("pareto", pLabels, pBars, pCum, "Pareto do Score (cumulativo %)");
-
-    // ---------- 5) Barras Criticidade de Engenharia ----------
-    const counts = countBy(rows.map(r=>r.crit_eng));
-    const ceLabels = Object.keys(counts).sort((a,b)=>Number(a)-Number(b));
-    const ceCounts = ceLabels.map(k=>counts[k]);
-    makeBar("barCritEng", ceLabels, ceCounts, "Criticidade de Engenharia (contagem)");
-
-  } catch (e) {
-    console.error(e);
-  }
-})();
-
-// ----- helpers de gráfico -----
-function makeBar(canvasId, labels, values, title) {
-  const ctx = document.getElementById(canvasId).getContext("2d");
-  new Chart(ctx, {
-    type: "bar",
-    data: {
-      labels,
-      datasets: [{ label: title, data: values, backgroundColor: "rgba(77,171,247,0.85)", borderColor: "rgba(77,171,247,1)", borderWidth: 1 }]
-    },
-    options: {
-      responsive: true, maintainAspectRatio: false,
-      plugins: { legend: { display: false }, tooltip:{ callbacks:{ label:(it)=> `${fmt.format(it.raw)}` } } },
-      scales: {
-        x: { ticks: { color: tickColor, autoSkip: false }, grid: { color: gridColor } },
-        y: { beginAtZero:true, ticks:{ color:tickColor, callback:axisFmt }, grid:{ color:gridColor } }
-      }
-    }
   });
 }
 
-function makeBubble(canvasId, points, title) {
-  const ctx = document.getElementById(canvasId).getContext("2d");
-  new Chart(ctx, {
-    type: "bubble",
+// Charts --------------------------------------------------------
+let scatterChart, paretoChart;
+
+function buildScatter(data) {
+  const pts = data.map((d) => ({
+    x: toNum(d.coverage_days),
+    y: toNum(d.lead_time_days),
+    r: 4,
+    backgroundColor: colorByEng(toNum(d.eng_crit)),
+    borderColor: "rgba(0,0,0,0.1)",
+    label: d.material_id,
+  }));
+
+  const xMin = 0;
+  const xMax = Math.max(30, ...data.map((d) => toNum(d.coverage_days))) || 30;
+  const linePts = [
+    { x: xMin, y: xMin },
+    { x: xMax, y: xMax },
+  ];
+
+  const ctx = document.getElementById("scatterRisk").getContext("2d");
+  if (scatterChart) scatterChart.destroy();
+  scatterChart = new Chart(ctx, {
+    type: "scatter",
     data: {
-      datasets: [{
-        label: title,
-        data: points,
-        backgroundColor: "rgba(255, 159, 64, 0.8)",
-        borderColor: "rgba(255, 159, 64, 1)"
-      }]
+      datasets: [
+        {
+          label: "Itens",
+          data: pts,
+          parsing: false,
+          pointBackgroundColor: pts.map((p) => p.backgroundColor),
+          pointRadius: pts.map((p) => p.r),
+          showLine: false,
+        },
+        {
+          label: "y = x (limite)",
+          type: "line",
+          data: linePts,
+          borderColor: "rgba(80,80,80,0.7)",
+          borderWidth: 1.5,
+          pointRadius: 0,
+        },
+      ],
     },
     options: {
-      responsive: true, maintainAspectRatio: false,
-      scales: {
-        x: { title: { display: true, text: "Lead time (dias)" }, ticks: { color: tickColor, callback:axisFmt }, grid: { color: gridColor } },
-        y: { title: { display: true, text: "Custo unitário" }, beginAtZero:true, ticks:{ color:tickColor, callback:axisFmt }, grid:{ color:gridColor } }
-      },
       plugins: {
+        legend: { display: true },
         tooltip: {
           callbacks: {
             label: (ctx) => {
               const p = ctx.raw;
-              return `${p.label}: lead ${fmt.format(p.x)} d, custo ${fmt.format(p.y)}`;
-            }
-          }
+              const row = data[ctx.dataIndex];
+              return [
+                `Material: ${row.material_id}`,
+                `Cov(d): ${fmt(p.x, 1)} | LT(d): ${fmt(p.y, 1)}`,
+                `Eng: ${fmt(row.eng_crit, 1)}  Score: ${fmt(row.score, 2)}`,
+              ];
+            },
+          },
         },
-        legend: { display: false }
-      }
-    }
+      },
+      scales: {
+        x: { title: { display: true, text: "Cobertura (dias)" }, beginAtZero: true },
+        y: { title: { display: true, text: "Lead time (dias)" }, beginAtZero: true },
+      },
+    },
   });
 }
 
-function makePareto(canvasId, labels, bars, cumPerc, title) {
-  const ctx = document.getElementById(canvasId).getContext("2d");
-  new Chart(ctx, {
+function buildPareto(data) {
+  const sorted = [...data].sort((a, b) => b.annual_value - a.annual_value);
+  const topN = sorted.slice(0, 20); // mostra os 20 maiores
+  const labels = topN.map((d) => d.material_id);
+  const values = topN.map((d) => d.annual_value);
+  const total = values.reduce((s, v) => s + v, 0) || 1;
+  let acc = 0;
+  const cum = values.map((v) => ((acc += v) / total) * 100);
+
+  const ctx = document.getElementById("paretoABC").getContext("2d");
+  if (paretoChart) paretoChart.destroy();
+  paretoChart = new Chart(ctx, {
     data: {
       labels,
       datasets: [
         {
-          type: "bar", label: "Score", data: bars, yAxisID: "y",
-          backgroundColor: "rgba(77,171,247,0.85)", borderColor: "rgba(77,171,247,1)"
+          type: "bar",
+          label: "Valor anual",
+          data: values,
+          yAxisID: "y",
         },
         {
-          type: "line", label: "Cumulativo (%)", data: cumPerc, yAxisID: "y1", tension: 0.25
-        }
-      ]
+          type: "line",
+          label: "Acumulado (%)",
+          data: cum,
+          yAxisID: "y1",
+          borderWidth: 2,
+          pointRadius: 2,
+        },
+      ],
     },
     options: {
-      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: true } },
       scales: {
-        y:  { beginAtZero:true, ticks:{ color:tickColor, callback:axisFmt }, grid:{ color:gridColor } },
-        y1: { beginAtZero:true, max:100, position: "right", ticks:{ color:tickColor, callback:(v)=>`${fmt.format(v)}%` }, grid:{ drawOnChartArea:false }},
-        x:  { ticks:{ color: tickColor, maxTicksLimit: 20 }, grid:{ color: gridColor } }
+        y: { title: { display: true, text: "Valor anual" } },
+        y1: {
+          position: "right",
+          min: 0,
+          max: 100,
+          grid: { drawOnChartArea: false },
+          title: { display: true, text: "Acumulado (%)" },
+        },
+        x: { ticks: { autoSkip: false, maxRotation: 60, minRotation: 0 } },
       },
-      plugins: { legend: { display: false } }
-    }
+    },
   });
 }
 
-function makeBins(values, k=10) {
-  if (!values.length) return { labels: [], counts: [] };
-  const min = Math.min(...values), max = Math.max(...values);
-  const step = (max - min) / k || 1;
-  const edges = Array.from({length: k+1}, (_,i)=> min + i*step);
-  const counts = new Array(k).fill(0);
-  values.forEach(v => {
-    let idx = Math.floor((v - min) / step);
-    if (idx >= k) idx = k-1;
-    if (idx < 0) idx = 0;
-    counts[idx]++;
+function buildRiskTable(data) {
+  const tbody = document.querySelector("#riskTable tbody");
+  tbody.innerHTML = "";
+  const rows = [...data]
+    .sort((a, b) => b.risk_score - a.risk_score)
+    .slice(0, 20);
+
+  const actionFor = (r) => {
+    if (r.risk_flag && r.suggest_qty > 0) return "Reabastecer agora";
+    if (!r.risk_flag && r.coverage_days > r.lead_time_days * 2) return "Reduzir estoque";
+    if (r.lead_time_days >= 60) return "Rever lead time";
+    return "Monitorar";
+    };
+
+  rows.forEach((r) => {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td>${r.material_id}</td>
+      <td>${fmt(r.eng_crit, 1)}</td>
+      <td>${fmt(r.lead_time_days, 0)}</td>
+      <td>${fmt(r.coverage_days, 0)}</td>
+      <td>${fmt(r.score, 2)}</td>
+      <td>${fmt(r.risk_score, 2)}</td>
+      <td>${fmt(r.suggest_qty, 0)}</td>
+      <td>${actionFor(r)}</td>
+    `;
+    tbody.appendChild(tr);
   });
-  const labels = counts.map((_,i)=> `${edges[i].toFixed(2)}–${edges[i+1].toFixed(2)}`);
-  return { labels, counts };
 }
 
-function countBy(arr) {
-  return arr.reduce((acc, x) => {
-    const k = String(x);
-    acc[k] = (acc[k] || 0) + 1;
-    return acc;
-  }, {});
-}
+// Boot ----------------------------------------------------------
+(async function () {
+  const rows = await parseCsv(DATA_PATH);
+
+  // tipagem garantida
+  const data = rows.map((r) => ({
+    material_id: r.material_id ?? r.Material ?? r.id,
+    category: r.category ?? "N/A",
+    supplier: r.supplier ?? "N/A",
+    eng_crit: toNum(r.eng_crit),
+    lead_time_days: toNum(r.lead_time_days),
+    unit_cost: toNum(r.unit_cost),
+    stock_qty: toNum(r.stock_qty),
+    daily_consumption: toNum(r.daily_consumption),
+    coverage_days: toNum(r.coverage_days),
+    annual_value: toNum(r.annual_value),
+    score: toNum(r.score),
+    risk_flag: Number(r.risk_flag) || 0,
+    risk_score: toNum(r.risk_score),
+    abc_class: r.abc_class ?? "",
+    xyz_class: r.xyz_class ?? "",
+    suggest_qty: toNum(r.suggest_qty),
+  }));
+
+  buildScatter(data);
+  buildPareto(data);
+  buildRiskTable(data);
+})();
