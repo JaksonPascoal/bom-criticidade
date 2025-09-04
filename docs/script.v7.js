@@ -27,60 +27,104 @@ const tickColor = (root.getPropertyValue("--fg") || "#eaeaea").trim();
 const gridColor = (root.getPropertyValue("--grid") || "rgba(255,255,255,0.09)").trim();
 const axisFmt = (v) => fmt.format(v);
 
-/* ---------- CSV loader com fallback e no-store ---------- */
-async function loadCSVWithFallback(paths) {
-  let lastErr;
-  for (let p of paths) {
-    const url = p + (p.includes("?") ? `&t=${Date.now()}` : `?t=${Date.now()}`);
-    try {
-      const res = await fetch(url, { cache: "no-store" });
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      const text = await res.text();
-      const lines = text.split(/\r?\n/).filter((l) => l.trim().length > 0);
-      const headers = lines[0].split(",").map((h) => h.trim());
-      const rows = lines.slice(1).map((l) => {
-        const cols = l.split(",").map((c) => c.trim());
-        const obj = {};
-        headers.forEach((h, i) => (obj[h] = cols[i]));
-        return obj;
-      });
-      console.log(`CSV OK: ${url} | linhas: ${rows.length}`);
-      return rows;
-    } catch (e) {
-      lastErr = e;
-      console.warn(`Falha em ${url}:`, e.message);
+/* ---------- CSV loader com PapaParse + fallback ---------- */
+const DATA_PATHS = [
+  "./data/processed/criticidade.csv",
+  "./data/processed/sample_criticidade.csv",
+  "../data/processed/criticidade.csv",
+];
+
+function loadCsvPaths(paths) {
+  return new Promise(async (resolve, reject) => {
+    let lastErr;
+    for (const p of paths) {
+      const url = p + (p.includes("?") ? `&t=${Date.now()}` : `?t=${Date.now()}`);
+      try {
+        Papa.parse(url, {
+          header: true,
+          download: true,
+          dynamicTyping: true,
+          skipEmptyLines: true,
+          // Papa detecta delimitador automaticamente
+          complete: (res) => {
+            if (res.data && res.data.length) {
+              console.log(`CSV OK: ${url} | linhas: ${res.data.length}`);
+              resolve(res.data);
+            } else {
+              throw new Error("CSV vazio");
+            }
+          },
+          error: (e) => { throw e; },
+        });
+        return; // sai do for ao iniciar parse do primeiro URL válido
+      } catch (e) {
+        lastErr = e;
+        console.warn(`Falha em ${url}:`, e?.message || e);
+      }
     }
-  }
-  throw lastErr || new Error("Falha ao carregar CSV");
+    reject(lastErr || new Error("Falha ao carregar CSV"));
+  });
 }
 
 const toNum = (x) => {
-  const n = parseFloat(String(x).replace(",", "."));
+  if (x === null || x === undefined || x === "") return 0;
+  const n = typeof x === "number" ? x : parseFloat(String(x).replace(/\./g, "").replace(",", "."));
   return Number.isFinite(n) ? n : 0;
 };
+
+/* ---------- mapeamento flexível (PT/EN) ---------- */
+function mapRow(r) {
+  // ids/campos textuais
+  const materialId =
+    r.material_id ?? r.Material ?? r.material ?? r.codigo ?? r.cod ?? r.id ?? "";
+  const descricao = r.descricao ?? r.description ?? "";
+
+  // criticidade de engenharia
+  const crit_eng = toNum(r.eng_crit ?? r.criticidade_engenharia ?? r.criticality);
+
+  // lead time em dias
+  const lead = toNum(r.lead_time_days ?? r.lead_time_dias ?? r.lead_time ?? r.lt_days);
+
+  // custo unitário
+  const custo = toNum(r.unit_cost ?? r.custo_unitario ?? r.preco_unit ?? r.unit_price);
+
+  // estoque atual
+  const estoque = toNum(r.stock_qty ?? r.estoque_atual ?? r.estoque ?? r.saldo);
+
+  // consumo diário / mensal (converte se necessário)
+  const daily = toNum(r.daily_consumption ?? r.consumo_diario);
+  const monthly = toNum(r.consumo_mensal);
+  const consumo = monthly || (daily ? daily * 30 : 0);
+
+  // cobertura (meses): usa campo PT se existir; senão calcula de dias
+  const coverageDays = toNum(r.coverage_days);
+  const coberturaMeses = toNum(r.estoque_cobertura_meses) || (daily ? estoque / (daily * 30) : (coverageDays ? coverageDays / 30 : 0));
+
+  // score
+  const score = toNum(r.score ?? r.score_criticidade);
+
+  return {
+    id: materialId || descricao || "Material",
+    desc: descricao || materialId,
+    crit_eng,
+    lead,
+    custo,
+    consumo,
+    estoque,
+    cobertura: coberturaMeses,
+    score,
+  };
+}
 
 /* ===================== MAIN ===================== */
 (async () => {
   try {
-    // Pages primeiro (/docs), depois ambiente local (/dashboard)
-    const data = await loadCSVWithFallback([
-      "data/processed/criticidade.csv",
-      "../data/processed/criticidade.csv",
-    ]);
+    // Carrega CSV (docs → local)
+    const data = await loadCsvPaths(DATA_PATHS);
     if (!data.length) throw new Error("CSV sem linhas.");
 
-    // Mapeia para o modelo interno (usa descricao como rótulo principal)
-    const rows = data.map((r) => ({
-      id: r.descricao || r.material_id || "Material",
-      desc: r.material_id || r.descricao || "",
-      crit_eng: toNum(r.criticidade_engenharia),
-      lead: toNum(r.lead_time_dias),
-      custo: toNum(r.custo_unitario),
-      consumo: toNum(r.consumo_mensal),
-      estoque: toNum(r.estoque_atual),
-      cobertura: toNum(r.estoque_cobertura_meses),
-      score: toNum(r.score_criticidade),
-    }));
+    // Normaliza linhas
+    const rows = data.map(mapRow);
 
     /* ---------- 1) TOP 20 por Score ---------- */
     const top = [...rows].sort((a, b) => b.score - a.score).slice(0, 20);
